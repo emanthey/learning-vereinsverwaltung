@@ -1,0 +1,22 @@
+{
+  "name": "learning",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "dev": "node --watch src/main.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "typescript": "5.9.3"
+  }
+}
