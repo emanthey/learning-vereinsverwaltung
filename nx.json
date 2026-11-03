@@ -5,6 +5,9 @@
     "build": {
       "cache": true,
       "outputs": ["{projectRoot}/dist"]
+    },
+    "lint": {
+      "cache": true
     }
   }
 }
