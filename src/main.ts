@@ -1,7 +1,7 @@
-import {readFile} from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 
-import type {Mitglied} from './mitglied.ts';
-import {vollerName, findeErstes} from './mitglied.ts';
+import type { Mitglied } from './mitglied.ts';
+import { vollerName, findeErstes } from './mitglied.ts';
 import { parseMitglied } from './parse.ts';
 
 function istPassiv(m: Mitglied): boolean {
@@ -11,7 +11,7 @@ function istPassiv(m: Mitglied): boolean {
 const text = await readFile('data/mitglieder.json', 'utf8');
 const roh: unknown = JSON.parse(text);
 
-if(!Array.isArray(roh)) {
+if (!Array.isArray(roh)) {
   throw new Error('JSON ist kein Array');
 }
 
@@ -27,12 +27,12 @@ for (const eintrag of roh) {
 
 const passivesMitglied = findeErstes(mitglieder, istPassiv);
 
-if(passivesMitglied !== undefined) {
+if (passivesMitglied !== undefined) {
   console.log(vollerName(passivesMitglied));
 } else {
   console.log('Kein passives Mitglied.');
 }
 
-for(const mitglied of mitglieder) {
+for (const mitglied of mitglieder) {
   console.log(mitglied.email ?? '(Keine Email)');
 }

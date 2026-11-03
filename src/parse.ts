@@ -1,7 +1,7 @@
 import type { Mitglied, MitgliedStatus } from './mitglied.ts';
 
 function istStatus(x: unknown): x is MitgliedStatus {
-  return (x === 'aktiv' || x === 'passiv' || x === 'ausgetreten');
+  return x === 'aktiv' || x === 'passiv' || x === 'ausgetreten';
 }
 
 export function parseMitglied(input: unknown): Mitglied {
@@ -9,13 +9,13 @@ export function parseMitglied(input: unknown): Mitglied {
     throw new Error('Eintrag ist kein Objekt');
   }
 
-  if(!('id' in input) || typeof input.id !== 'number') {
+  if (!('id' in input) || typeof input.id !== 'number') {
     throw new Error('id fehlt oder ist keine Zahl');
   }
-  if(!('vorname' in input) || typeof input.vorname !== 'string') {
+  if (!('vorname' in input) || typeof input.vorname !== 'string') {
     throw new Error('Vorname fehlt oder ist kein String');
   }
-  if(!('nachname' in input) || typeof input.nachname !== 'string') {
+  if (!('nachname' in input) || typeof input.nachname !== 'string') {
     throw new Error('Nachname fehlt oder ist kein String');
   }
   if (!('status' in input) || !istStatus(input.status)) {
@@ -32,12 +32,17 @@ export function parseMitglied(input: unknown): Mitglied {
   }
 
   // JSON kennt kein Date: erst String prüfen, dann umwandeln, dann Gültigkeit prüfen
-  if (!('eintrittsdatum' in input) || typeof input.eintrittsdatum !== 'string') {
+  if (
+    !('eintrittsdatum' in input) ||
+    typeof input.eintrittsdatum !== 'string'
+  ) {
     throw new Error('eintrittsdatum fehlt oder ist kein String');
   }
   const eintrittsdatum = new Date(input.eintrittsdatum);
   if (Number.isNaN(eintrittsdatum.getTime())) {
-    throw new Error(`eintrittsdatum ist kein gültiges Datum: ${input.eintrittsdatum}`);
+    throw new Error(
+      `eintrittsdatum ist kein gültiges Datum: ${input.eintrittsdatum}`,
+    );
   }
 
   return {
