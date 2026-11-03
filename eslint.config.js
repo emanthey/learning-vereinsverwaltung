@@ -4,13 +4,14 @@ import tseslint from 'typescript-eslint';
 import prettier from 'eslint-config-prettier';
 
 export default defineConfig(
-  { ignores: ['dist/', '.nx/'] },
+  { ignores: ['**/dist/', '.nx/'] },
   eslint.configs.recommended,
   tseslint.configs.strictTypeChecked,
   {
     languageOptions: {
       parserOptions: {
         projectService: { allowDefaultProject: ['eslint.config.js'] },
+        tsconfigRootDir: import.meta.dirname,
       },
     },
   },

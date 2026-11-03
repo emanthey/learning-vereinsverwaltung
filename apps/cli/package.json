@@ -1,0 +1,13 @@
+{
+  "name": "@learning/cli",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "dev": "node --watch src/main.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  }
+}
