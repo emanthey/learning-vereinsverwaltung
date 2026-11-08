@@ -1,8 +1,7 @@
 import { readFile } from 'node:fs/promises';
 
-import type { Mitglied } from './mitglied.ts';
-import { vollerName, findeErstes } from './mitglied.ts';
-import { parseMitglied } from './parse.ts';
+import type { Mitglied } from '@learning/mitglied';
+import { vollerName, findeErstes, parseMitglied } from '@learning/mitglied';
 
 function istPassiv(m: Mitglied): boolean {
   return m.status === 'passiv';
