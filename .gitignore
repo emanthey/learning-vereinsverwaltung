@@ -6,3 +6,5 @@ dist/
 .nx/migrate-runs
 
 .angular/
+
+.env
