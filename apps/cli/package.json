@@ -11,6 +11,6 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@learning/mitglied": "1.0.0"
+    "@learning/member": "1.0.0"
   }
 }

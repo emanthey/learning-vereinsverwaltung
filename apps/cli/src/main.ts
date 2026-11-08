@@ -1,37 +1,37 @@
 import { readFile } from 'node:fs/promises';
 
-import type { Mitglied } from '@learning/mitglied';
-import { vollerName, findeErstes, parseMitglied } from '@learning/mitglied';
+import type { Member } from '@learning/member';
+import { fullName, findFirst, parseMember } from '@learning/member';
 
-function istPassiv(m: Mitglied): boolean {
+function isPassive(m: Member): boolean {
   return m.status === 'passiv';
 }
 
-const text = await readFile('data/mitglieder.json', 'utf8');
-const roh: unknown = JSON.parse(text);
+const text = await readFile('data/members.json', 'utf8');
+const raw: unknown = JSON.parse(text);
 
-if (!Array.isArray(roh)) {
+if (!Array.isArray(raw)) {
   throw new Error('JSON ist kein Array');
 }
 
-const mitglieder: Mitglied[] = [];
+const members: Member[] = [];
 
-for (const eintrag of roh) {
+for (const entry of raw) {
   try {
-    mitglieder.push(parseMitglied(eintrag));
+    members.push(parseMember(entry));
   } catch (e) {
     console.log(e instanceof Error ? e.message : String(e));
   }
 }
 
-const passivesMitglied = findeErstes(mitglieder, istPassiv);
+const passiveMember = findFirst(members, isPassive);
 
-if (passivesMitglied !== undefined) {
-  console.log(vollerName(passivesMitglied));
+if (passiveMember !== undefined) {
+  console.log(fullName(passiveMember));
 } else {
   console.log('Kein passives Mitglied.');
 }
 
-for (const mitglied of mitglieder) {
-  console.log(mitglied.email ?? '(Keine Email)');
+for (const member of members) {
+  console.log(member.email ?? '(Keine Email)');
 }

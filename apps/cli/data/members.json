@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "firstName": "Axel",
+    "lastName": "Axelsson",
+    "email": "axel@axelsson.ax",
+    "status": "aktiv",
+    "joinedAt": "2020-01-01"
+  },
+  {
+    "id": 2,
+    "firstName": "Berta",
+    "lastName": "Bertelsson",
+    "email": "berta@bertelsson.be",
+    "status": "passiv",
+    "joinedAt": "2021-01-01"
+  },
+  {
+    "id": 3,
+    "firstName": "Christa",
+    "lastName": "Christenson",
+    "status": "ausgetreten",
+    "joinedAt": "2022-01-01"
+  },
+  {
+    "id": 4,
+    "firstName": "Dirk",
+    "lastName": "Dirkenson",
+    "status": "aktiv",
+    "joinedAt": "2023-01-01"
+  },
+  {
+    "id": 5,
+    "firstName": "Eddie",
+    "lastName": "Eddieson",
+    "status": "aktiv",
+    "joinedAt": "2019-01-01"
+  },
+  {
+    "id": 6,
+    "firstName": "Friedrich",
+    "lastName": "Friedrichson",
+    "status": "aktiv",
+    "joinedAt": "2000-01-01"
+  }
+]
