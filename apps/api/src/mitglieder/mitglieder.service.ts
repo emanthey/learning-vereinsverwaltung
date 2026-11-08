@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import type { Mitglied } from '@learning/mitglied';
+import type { NeuesMitglied } from './neues-mitglied.schema.ts';
 
 @Injectable()
 export class MitgliederService {
@@ -32,5 +33,27 @@ export class MitgliederService {
     }
 
     throw new NotFoundException();
+  }
+
+  private internGetNextId(): number {
+    let currentId = 0;
+
+    for (const m of this.mitglieder) {
+      if (m.id > currentId) {
+        currentId = m.id;
+      }
+    }
+
+    return currentId + 1;
+  }
+
+  anlegen(daten: NeuesMitglied): Mitglied {
+    const neuesMitglied: Mitglied = {
+      id: this.internGetNextId(),
+      ...daten,
+    };
+
+    this.mitglieder.push(neuesMitglied);
+    return neuesMitglied;
   }
 }
