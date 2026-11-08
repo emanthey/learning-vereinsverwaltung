@@ -28,5 +28,19 @@
     "nachname": "Dirkenson",
     "status": "aktiv",
     "eintrittsdatum": "2023-01-01"
+  },
+  {
+    "id": 5,
+    "vorname": "Eddie",
+    "nachname": "Eddieson",
+    "status": "aktiv",
+    "eintrittsdatum": "2019-01-01"
+  },
+  {
+    "id": 6,
+    "vorname": "Friedrich",
+    "nachname": "Friedrichson",
+    "status": "aktiv",
+    "eintrittsdatum": "2000-01-01"
   }
 ]
